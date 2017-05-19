@@ -6,72 +6,13 @@
 }
 
 <h2>@ViewBag.Title.</h2>
-@section scripts{
-  
-<script>
 
-    if (annyang) {
-        var commands =
-            {
-                'Username': function () {
-                    username();
-                    //alert('Hi! I can hear you.');
-                },
-
-                'name is *theValue': function (theValue) {
-                    $('input[name="email"]').val(theValue);
-                },
-
-                'Password': function () {
-                    password();
-                    //alert('Hi! I can hear you.');
-                },
-
-                'password is *theValue': function (theValue) {
-                    $('#Password').val(theValue);
-
-                },
-
-                'Login': function () {
-                    $('#submit').trigger('click');
-                    //alert('Hi! I can hear you.');
-                },
-
-                'logout': function () {
-                    $('#signout').trigger('click');
-                    alert('Hi! I can hear you.');
-                    //FormsAuthentication.SignOut();
-
-                },
-
-
-            };
-
-
-        SpeechKITT.annyang();
-
-        //annyang.init(commands);
-        annyang.addCommands(commands);
-        annyang.start({ autoRestart: true, continuous: false });
-        //annyang.start();
-        annyang.debug();
-
-        // Define a stylesheet for KITT to use
-        SpeechKITT.setStylesheet('//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/themes/flat.css');
-        // Render KITT's interface
-        SpeechKITT.vroom();
-
-    }
-
-
-</script>
-    }
 <link href="/Content/CustomStyles.css" rel="stylesheet" type="text/css" />
 
 <div class="navbar navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="brand" href='@Url.Action("Index", "Home")'>Social Goal</a>
+            <a class="brand" href='@Url.Action("Index", "Home")'>Free Hands </a>
         </div>
     </div>
 </div>
@@ -79,10 +20,10 @@
 <div class="container-fluid margin-top">
     <div class="row-fluid">
         <div class="span7" id="content">
-            <div style="padding:80px;">
-                <img src="/Images/replacement%20people.jpg" />
+            <div style="padding:-80px;">
+                <img src="/Images/rep.jpg" />
             </div>
-
+       
         </div>
 
 
@@ -121,7 +62,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Log in" class="btn btn-primary" />
+                                    <input type="submit" value="Log in" class="btn btn-primary" id="submit"/>
                                 </div>
                             </div>
                             <p>
@@ -149,3 +90,54 @@
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@section scripts {
+   <script>
+       if (annyang) {
+           var commands =
+               {
+                   'Username': function () {
+                       username();
+                       //alert('Hi! I can hear you.');
+                    },
+
+                   'name is *theValue': function (theValue) {
+                       $('#Email').val(theValue);
+                   },
+
+                   'Password': function () {
+                       password();
+                       //alert('Hi! I can hear you.');
+                   },
+
+                   'password is *theValue': function (theValue) {
+                       $('#Password').val(theValue);
+
+                   },
+
+                   'Login': function () {
+                       $('#submit').trigger('click');
+                       //alert('Hi! I can hear you.');
+                   }
+
+
+               };
+
+
+           SpeechKITT.annyang();
+
+           //annyang.init(commands);
+           annyang.addCommands(commands);
+           annyang.start({ autoRestart: true, continuous: false });
+           //annyang.start();
+           annyang.debug();
+
+           // Define a stylesheet for KITT to use
+           SpeechKITT.setStylesheet('//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/themes/flat.css');
+           // Render KITT's interface
+           SpeechKITT.vroom();
+
+       }
+
+
+</script> 
+    }
